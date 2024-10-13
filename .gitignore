@@ -1,2 +1,4 @@
 .vs/
 *.ipch
+x64/
+GameServer/x64/Debug
