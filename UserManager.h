@@ -23,4 +23,16 @@ public:
 
 private:
 	//...
+	User* AllocUserObjPoolIndex();
+	void ReleaseUserObjPoolIndex(const int index);
+
+	User* FindUser(const int sessionIndex);
+	User* FindUser(const char* pszID); // 오버로딩
+
+private:
+	std::vector<User> m_UserObjPool;
+	std::deque<int> m_UserObjPoolIndex;
+
+	std::unordered_map<int, User*> m_UserSessionDic;
+	std::unordered_map<const char*, User*> m_UserIDDic;
 };
