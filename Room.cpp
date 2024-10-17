@@ -1,4 +1,4 @@
-﻿#include <algorithm>
+#include <algorithm>
 #include <cstring>
 #include <wchar.h>
 
@@ -9,28 +9,23 @@
 #include "User.h"
 #include "Room.h"
 
-
-
-Room::Room() {}
-
-Room::~Room()
-{
+Room::Room() {
 }
-	
-void Room::Init(const short index, const short maxUserCount)
-{
+
+Room::~Room() {
+}
+
+void Room::Init(const short index, const short maxUserCount) {
 	m_Index = index;
 	m_MaxUserCount = maxUserCount;
 }
 
-void Room::SetNetwork(TcpNet* pNetwork, ILog* pLogger)
-{
+void Room::SetNetwork(TcpNet* pNetwork, ILog* pLogger) {
 	m_pRefLogger = pLogger;
 	m_pRefNetwork = pNetwork;
 }
 
-void Room::Clear()
-{
+void Room::Clear() {
 	m_IsUsed = false;
 	m_UserList.clear();
 }
