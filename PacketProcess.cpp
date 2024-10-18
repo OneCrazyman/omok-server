@@ -57,7 +57,7 @@ ERROR_CODE PacketProcess::NtfSysCloseSession(PacketInfo packetInfo)
 
 	m_pRefLogger->Write(LOG_TYPE::L_INFO, "%s | NtfSysCloseSession. sessionIndex(%d)", __FUNCTION__, packetInfo.SessionIndex);
 
-	return ERROR_CODE();
+	return ERROR_CODE::NONE;
 }
 
 ERROR_CODE PacketProcess::Login(PacketInfo packetInfo)
