@@ -1,5 +1,18 @@
-.vs/
-*.ipch
+# C++ Server Project
+/GameServer/.vs/
+/GameServer/*.ipch
+/GameServer/x64/
+/GameServer/Bin/
 
-*/x64/
-*/Bin/
+# Windows Forms .NET 6.0
+/GameClient/bin/
+/GameClient/obj/
+/GameClient/.vs/
+/GameClient/*.user
+/GameClient/*.suo
+/GameClient/*.sln.iml
+/GameClient/*.vscode/
+
+.vs/
+*/ipch
+
