@@ -3,6 +3,10 @@
 
 #include "NetLib/Define.h"
 #include "NetLib/TcpNetwork.h"
+#include "UserManager.h"
+
+using NET_ERROR_CODE = NServerNetLib::NET_ERROR_CODE;
+using LOG_TYPE = NServerNetLib::LOG_TYPE;
 
 Server::Server() {
 }
@@ -20,6 +24,16 @@ ERROR_CODE Server::Init() {
     m_pNetwork = std::make_unique<NServerNetLib::TcpNetwork>();
     auto result = m_pNetwork->Init(m_pServerConfig.get(), m_pLogger.get());
 
+    if (result != NET_ERROR_CODE::NONE) {
+        m_pLogger->Write(LOG_TYPE::L_ERROR, "%S | Init Fail. NetErrorCode(%s)", __FUNCTION__, (short)result);
+        return ERROR_CODE::MAIN_INIT_NETWORK_INIT_FAIL;
+    }
+
+    m_pUserMgr = std::make_unique<UserManager>();   // 하나의 객체만 관리
+    m_pUserMgr->Init(m_pServerConfig->MaxClientCount);  // Config 값에 따라 Init (세팅 파일 분리)
+
+    // do
+
     return ERROR_CODE();
 }
 
@@ -30,6 +44,7 @@ void Server::Release() {
 }
 
 ERROR_CODE Server::LoadConfig() {
+    // 하드코딩X -> 실제론 파일로 빼야한다
     m_pServerConfig = std::make_unique<NServerNetLib::ServerConfig>();
 
     // Define.h 임포트 필요, 구조체의 변수 정보 필요

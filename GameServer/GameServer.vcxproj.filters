@@ -10,7 +10,7 @@
     <ClInclude Include="ConsoleLogger.h" />
     <ClInclude Include="ErrorCode.h" />
     <ClInclude Include="Server.h" />
-    <ClInclude Include="main.h" />
+    <ClInclude Include="UserManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="NetLib\TcpNetwork.cpp" />

@@ -134,13 +134,13 @@
     <ClInclude Include="conmanip.h" />
     <ClInclude Include="ConsoleLogger.h" />
     <ClInclude Include="ErrorCode.h" />
-    <ClInclude Include="main.h" />
     <ClInclude Include="NetLib\Define.h" />
     <ClInclude Include="NetLib\ILog.h" />
     <ClInclude Include="NetLib\ITcpNetwork.h" />
     <ClInclude Include="NetLib\ServerNetErrorCode.h" />
     <ClInclude Include="NetLib\TcpNetwork.h" />
     <ClInclude Include="Server.h" />
+    <ClInclude Include="UserManager.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp" />
